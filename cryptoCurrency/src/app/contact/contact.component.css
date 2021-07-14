@@ -1,0 +1,30 @@
+.btn{
+    background-color: #fff;
+    color:#000;
+    padding: 10px 10px;
+    line-height: 1.2em;
+    width:180px;
+    border-radius: 0%4px;
+}
+
+.btn:hover{
+    background-color: #061121;
+    color:#fff;
+    border: 1px solid #014f86;
+}
+
+.success,.error{
+    margin: 20px;
+    font-size: 16px;
+}
+
+.container{
+    background-color: #061121;
+    color:#a9d6e5;
+}
+
+@media(max-width:500px){
+    .btn{
+        margin-bottom: 15px;
+    }
+}

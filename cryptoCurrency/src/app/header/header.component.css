@@ -1,0 +1,24 @@
+.navbar-header:hover{
+    color: #03045e;
+}
+.navbar-brand{
+    font-size: 30px;
+    font-weight: 450;
+    color:#03045e;
+}
+
+a:hover{
+    color: #03045e!important;
+}
+
+.links{
+    margin: 5px 10px;
+    font-size: 18px;
+}
+
+@media(max-width:500px){
+
+    .navbar{
+        text-align: center;
+    }
+}

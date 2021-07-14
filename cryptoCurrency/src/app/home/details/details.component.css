@@ -1,0 +1,141 @@
+.btn{
+    background-color: #fff;
+    color:#000;
+    padding: 10px 10px;
+    line-height: 1.2em;
+    width:180px;
+    border-radius: 4px;
+}
+
+.btn:hover{
+    background-color: #061121;
+    color:#fff;
+    border: 1px solid #014f86;
+}
+
+.li-btn{
+    background-color: #061121;
+    border: none;
+}
+
+img{
+    display: inline;
+    height: 130px;
+    width: 130px;
+    border-radius: 20px;
+}
+
+.container{
+    background-color: #061121;
+    color:#a9d6e5;
+}
+
+.card{
+    background-color: #014f86;
+}
+
+.cry-name{
+    margin-bottom: 15px;
+    font-size: 29px;
+    font-style: italic;
+    text-decoration: overline;
+    display: inline;
+}
+
+.cry-desc,.cry-sym,.cry-rank,.cry-score{
+    text-transform: capitalize;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+mat-accordion{
+    margin: 25px;
+}
+
+mat-expansion-panel{
+    background-color: #014f86;
+    text-transform: uppercase;
+    color:#fff;
+}
+
+.exp-heading{
+    font-size: 14px;
+}
+
+
+.badge{
+    margin: 5px;
+    background-color: #98c1d9;
+    color:black;
+}
+
+.exp-content{
+    font-size: 14px;
+} 
+
+@media(max-width:500px){
+    .btn-xs{
+        height: 35px;
+        width: 100px;
+        border-radius: 5px;
+        margin-left: 30px;
+        font-style: italic;
+    }
+
+    #cmpUSD{
+        text-indent: 150px;
+    }
+
+    marquee{
+        text-shadow: 1px 1px 3px white;
+        font-size: 16px;
+    }
+
+    sub{
+        font-size: 13px;
+    }
+
+    .li-btn{
+        margin-left: 70px;
+        padding: 3px 0px;
+    }
+
+    .btn-list{
+        font-size: 12px;
+        width: 150px;
+        font-style: italic;
+        border-radius: 5px;
+       
+    }
+
+    .cryp-img{
+        position: absolute;
+        left:20px;
+        height: 100px;
+        width: 100px;
+        top: 10px
+    }
+
+    .cry-name{
+        font-size: 25px;
+    }
+
+    .cry-sym,.cry-rank,.cry-score{
+        font-size: 15px;
+        font-style: italic;
+    }
+
+    .cry-desc{
+        font-style: italic;
+    }
+    .badge{
+        visibility: hidden;
+        display: none;
+    }
+    .mat-expansion-panel:not(.mat-expanded):not([aria-disabled=true]) .mat-expansion-panel-header:hover{
+        background-color: #014f86;
+    }
+    .social-number{
+        font-size: 18px;;
+    }
+}

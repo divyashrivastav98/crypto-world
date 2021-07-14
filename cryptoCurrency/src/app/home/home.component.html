@@ -1,0 +1,36 @@
+<div class="home">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+              What is <span class="cry-head">CryptoCurrency?</span>
+            </div>
+            <div class="card-body">
+                  <p>&ldquo;A cryptocurrency is a digital or virtual currency that is secured by cryptography, which makes it nearly impossible to counterfeit or double-spend.Many cryptocurrencies are decentralized networks based on blockchain technology—a distributed ledger enforced by a disparate network of computers.&rdquo;</p>
+              <a href="https://crypto.com/" target="_blank" title="crypto.com" class="btn btn-primary official">Official Docs</a>
+            </div>
+        </div>
+        <br>
+        
+        <app-loading *ngIf="!isLoaded"></app-loading>
+        <div *ngIf="isLoaded">
+            <form #f="ngForm">
+                <div class="form-group row">
+                    <div class="col-lg-9 col-xs-9">
+                            <input type="text" id="customInput" class="form-control" name="input" [(ngModel)]="inputText" placeholder="Enter a coin or select from dropdown...">
+                    </div>
+                    <div class="col-lg-3 col-xs-3">
+                        <button class="btn btn-primary filter-btn" (click)="onFilter()">Filter</button>
+                    </div>
+                    <div class="col-lg-12 col-xs-12">
+                            <label for="id">Select CryptoCurrency:</label>
+                            <select class="form-control" name="id" id="id" ngModel (change)="onChange()">
+                                <option *ngFor="let coin of coins |filterOne:filterText" [value]="coin.id">{{coin.name}}</option>
+                            </select>
+                    </div>
+                </div>
+            </form>
+            <app-details [id]="coin_id" [isShowDetails]="isShowDetails" *ngIf="isChange"></app-details>
+        </div>
+      </div>
+</div>
+

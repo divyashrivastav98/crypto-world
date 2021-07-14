@@ -1,0 +1,13 @@
+canvas{
+    background-color: #061121;
+    color: white;
+}
+
+@media(max-width:500px){
+
+    canvas.chartjs-render-monitor{
+        display: block;
+        height: 260px!important;
+        width: 320px!important;
+    }
+}

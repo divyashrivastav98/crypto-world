@@ -1,0 +1,47 @@
+<div class="container">
+    <h3>Liked what you saw? Have any suggestions?</h3>
+    <p>Leave a message and I will reach out to you!</p>
+    <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" class="form-control" formControlName="name" placeholder="Your name">
+                    <span style="color:#a9d6e5 ;"
+                     *ngIf="!feedbackForm.get('name')?.valid && feedbackForm.get('name')?.touched">
+                        Please enter a valid name!
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-12 col-xs-12">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" formControlName="email" placeholder="Your email">
+                    <span *ngIf="feedbackForm.get('email')!.errors?.required && feedbackForm.get('email')?.touched">Email cannot be blank!</span>
+                    <span *ngIf="feedbackForm.get('email')!.errors?.email && feedbackForm.get('email')?.touched">Please enter a valid email!</span>
+                </div>
+            </div>
+            <div class="col-lg-12 col-xs-12">
+                <div class="form-group">
+                    <textarea name="comment" id="comment" cols="10" rows="5" class="form-control" formControlName="feedback" placeholder="Leave your message here...">
+                    </textarea>
+                    <span *ngIf="feedbackForm.get('feedback')!.errors?.required && feedbackForm.get('feedback')?.touched">Message cannot be blank</span>
+                    <span *ngIf="feedbackForm.get('feedback')!.errors?.minlength && feedbackForm.get('email')?.touched">Length should be greater than 10</span>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-12">
+                <button class="btn btn-primary" [disabled]="!feedbackForm?.valid">Submit</button>
+            </div>
+            <div class="col-lg-6 col-xs-12">
+                <button class="btn btn-primary" type="button" (click)="onReset()">Reset</button>
+            </div>
+        </div>
+    </form>
+    <div class="success" *ngIf="success || success!==''">
+        <p>{{success}}</p>
+    </div>
+    <div class="error" *ngIf="error || error!==''">
+        <p>{{error}}</p>
+    </div>
+</div>
+

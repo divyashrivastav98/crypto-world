@@ -1,0 +1,176 @@
+<div class="container">
+    <form>
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <button class="btn btn-primary btn-xs" (click)="onShowDetails()">Show Details</button>
+        </div>
+        <div class=" col-lg-3 col-xs-6">
+          <button class="btn btn-primary btn-xs" (click)="onClear()">Clear</button>
+        </div>
+      </div>
+    </form>
+    <hr>
+</div>
+<app-loading *ngIf="isLoading"></app-loading>
+<div *ngIf="!isLoading">
+  <div class="container" *ngIf="isShowDetails">
+    <marquee>
+      <div class="row">
+        <div class="col-lg-5 col-xs-6">
+          CURRENT MARKET PRICE<sub>(INR)</sub>: &#8377;{{cmpInINR}}
+        </div>
+        <div class="col-lg-7 col-xs-6" id="cmpUSD">
+          CURRENT MARKET PRICE<sub>(USD)</sub> : ${{cmpInUSD}}
+        </div>
+      </div>
+    </marquee>
+    <hr>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-xs-12">
+        <ul class="list-group">
+          <li class="list-group-item li-btn"><button class="btn btn-primary btn-list" (click)="onButtonClicked('details')">Details</button></li>
+          <li class="list-group-item li-btn"><button class="btn btn-primary btn-list" (click)="onButtonClicked('market-data')">Market data</button></li>
+          <li class="list-group-item li-btn"><button class="btn btn-primary btn-list" (click)="onButtonClicked('line-chart')">Market change %</button></li>
+          <li class="list-group-item li-btn"><button class="btn btn-primary btn-list" (click)="onButtonClicked('bar-chart')">Market change % in &#8377;</button></li>
+          <li class="list-group-item li-btn"><button class="btn btn-primary btn-list" (click)="onButtonClicked('links')">Links</button></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-9 col-md-9 col-xs-12">
+        <div id="details" *ngIf="contentType=='details'">
+          <div class="row">
+            <div class="col-lg-9 col-xs-12">
+              <p class="cry-name">{{details?.name}}</p>
+            </div>
+            <div class="col-lg-9 col-xs-7">
+              <div class="row">
+                <div class="col-xs-12">
+                  <p class="cry-sym">Symbol : {{details?.symbol}}</p>
+                </div>
+                <div class="col-xs-12">
+                <p class="cry-rank">Coingecko Rank : {{details?.coingecko_rank}}</p>
+                </div>
+                <div class="col-xs-12">
+                  <p class="cry-score">Coingecko Score : {{details?.coingecko_score}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-xs-3">
+                <img class="cryp-img" [src]="imgSrc" alt="Crypto Image">
+            </div>
+            <div class="col-xs-12">
+              <p class="cry-desc">{{desc}}</p>
+            </div>
+          </div>
+        </div>
+  
+  
+        <div id="market-data" *ngIf="contentType=='market-data'">
+          <div class="row">
+            <div class="col-lg-3 col-xs-12">
+              <mat-accordion multi="true">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <p class="exp-heading">Market cap <span class="badge mat-hide">2</span></p>
+                    </mat-expansion-panel-header>
+                      <div class="row">
+                        <div class="col-xs-12">
+                          INR : <span class="exp-content">&nbsp;&#8377;{{marCapInINR}}</span>
+                        </div>
+                        <br>
+                        <div class="col-xs-12">
+                          USD : <span class="exp-content">&nbsp;${{marCapInUSD}}</span>
+                        </div>
+                      </div>
+                  </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+            <div class="col-lg-3 col-xs-12">
+              <mat-accordion multi="true">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                     <p class="exp-heading">Total Volume<span class="badge mat-hide">2</span></p>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                      <div class="col-xs-12">
+                        INR : <span class="exp-content">&nbsp;&#8377;{{totalVolInINR}}</span>
+                      </div>
+                      <div class="col-xs-12">
+                        USD : <span class="exp-content">&nbsp;${{totalVolInUSD}}</span>
+                      </div>
+                    </div>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+            <div class="col-lg-3 col-xs-12">
+              <mat-accordion multi="true">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                     <p class="exp-heading">High 24h<span class="badge mat-hide">2</span></p>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                      <div class="col-xs-12">
+                        INR : <span class="exp-content">&nbsp;&#8377;{{high24hINR}}</span>
+                      </div>
+                      <div class="col-xs-12">
+                        USD : <span class="exp-content">&nbsp;${{high24hUSD}}</span>
+                      </div>
+                    </div>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+            <div class="col-lg-3 col-xs-12">
+              <mat-accordion multi="true">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                     <p class="exp-heading">Low 24h<span class="badge mat-hide">2</span></p>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                      <div class="col-xs-12">
+                        INR : <span class="exp-content">&nbsp;&#8377;{{low24hINR}}</span>
+                      </div>
+                      <div class="col-xs-12">
+                        USD : <span class="exp-content">&nbsp;${{low24hUSD}}</span>
+                      </div>
+                    </div>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+          </div>
+        </div>
+  
+        
+        <div id="line-chart" *ngIf="contentType=='line-chart'">
+          <app-line-chart></app-line-chart>
+        </div>
+        <div id="bar-chart" *ngIf="contentType=='bar-chart'">
+          <app-bar-chart></app-bar-chart>
+        </div>
+
+        <div id="links" *ngIf="contentType=='links'">
+          <ul class="list-group">
+            <li class="list-group-item" *ngIf="homepageLink"><a [href]="homepageLink" target="_blank">Homepage Link</a></li>
+            <li class="list-group-item" *ngIf="blockChainSite"><a [href]="blockChainSite" target="_blank">Block Chain Site</a></li>
+            <li class="list-group-item" *ngIf="chatUrl"><a [href]="chatUrl" target="_blank">Chat Url</a></li>
+          </ul>
+          <div class="row">
+            <div class="col-xs-12" *ngIf="fb!==''">
+              <p><i class="fa fa-facebook-f fa-2x"></i>&nbsp;&nbsp;Likes: <span class="social-number">{{fb}}</span></p>
+            </div>
+            <div class="col-xs-12" *ngIf="twitter!==''">
+              <p><i class="fa fa-twitter fa-2x"></i>&nbsp;&nbsp;Followers: <span class="social-number">{{twitter}}</span></p>
+            </div>
+            <div class="col-xs-12" *ngIf="reddit!==''">
+              <p><i class="fa fa-reddit-alien fa-2x"></i>&nbsp;&nbsp;Subscribers: <span class="social-number">{{reddit}}</span></p>
+            </div>
+            <div class="col-xs-12" *ngIf="telegram!==''">
+              <p><i class="fa fa-telegram fa-2x"></i>&nbsp;&nbsp;Users: <span class="social-number">{{telegram}}</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
