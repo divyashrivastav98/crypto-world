@@ -19,7 +19,7 @@ export class DetailsComponent implements OnInit {
       this.isShowDetails = data;
     })
   }
-
+  
   details !: CoinsDetails;
   @Input('id') id!: number;
   @Input() isShowDetails !:boolean;
@@ -52,7 +52,7 @@ export class DetailsComponent implements OnInit {
     setTimeout(()=>{
         this.appService.getDetailById(this.id).subscribe((response: CoinsDetails) => {
         this.details = response;
-        this.desc = this.details.description["en"].substr(0,934);
+        this.desc = this.details.description["en"];
         this.imgSrc = this.details.image["small"];
         this.setMarketData();
         this.setLinks();

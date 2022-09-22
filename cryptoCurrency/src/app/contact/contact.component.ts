@@ -26,8 +26,7 @@ export class ContactComponent implements OnInit {
     this.contactService.saveFeedback(this.feedbackForm.value).subscribe(data=>{
     this.success = 'Your response was submitted successfully!'
     },error =>{
-      let message = 'Your response could not be saved. Please try again later.'
-      this.error = message;
+      this.error = 'Your response could not be saved. Please try again later.';
     });
 
     setTimeout(()=>{
@@ -40,16 +39,6 @@ export class ContactComponent implements OnInit {
     this.feedbackForm.reset();
     this.error = '';
     this.success = '';
-
-  }
-
-  // registeredEmail(control:FormControl):{[s: string]: boolean}{
-  //   let emailArray :string[] = [];
-  //   if(emailArray.indexOf(control.value) == -1){
-  //     return {'emailRegistered':true};
-  //   }
-  //   return null;
-
-  // }
+ }
  
 }

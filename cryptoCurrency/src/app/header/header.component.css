@@ -1,10 +1,27 @@
+a{
+    cursor: pointer;
+}
+
+.navbar{
+    margin-bottom: 0px;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #03045e;
+}
+
 .navbar-header:hover{
     color: #03045e;
 }
 .navbar-brand{
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 450;
     color:#03045e;
+}
+
+.navbar-nav>li>a{
+    text-align: center;
+    color: #03045e;
 }
 
 a:hover{
@@ -18,7 +35,18 @@ a:hover{
 
 @media(max-width:500px){
 
-    .navbar{
-        text-align: center;
+    .navbar-brand{
+        position: relative;
+        left: 65px;
+    }
+}
+
+@media (min-width: 768px){
+    .navbar>.container .navbar-brand {
+        margin-left: -200px;
+    }
+
+    .navbar-nav>li>a:hover{
+        border-bottom: 2px solid #03045e;
     }
 }

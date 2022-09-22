@@ -1,6 +1,18 @@
-.btn{
+.home{
     background-color: #fff;
-    color:#000;
+    color:#061121;
+    margin-top: 10px;
+}
+.card-body .off-link{
+    font-size:12px ;
+}
+.card-body a{
+    color: #061121;
+    text-decoration: underline;
+}
+.btn{
+    background-color: #E3F1F3;
+    color:#fff;
     padding: 10px 10px;
     line-height: 1.2em;
     width:180px;
@@ -12,15 +24,17 @@
     color:#fff;
     border: 1px solid #014f86;
 }
-
-.home{
-    background-color: #061121;
-    color:#a9d6e5;
-}
-
 .cry-head{
     font-size: 20px;
     font-style: italic;
+    transition: all 5s;
+    border-bottom: none;
+}
+
+.cry-head:hover{
+    cursor: pointer;
+    border-bottom: 2px solid #061121;
+    font-size: 25px;
 }
 
 .cry-header{

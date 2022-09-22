@@ -1,16 +1,46 @@
-.btn{
+.container-fluid{
+    background-color: #061121;
+    color:#a9d6e5;
+}
+
+.text{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+form{
+    margin: 0px 200px;
+    padding: 20px 40px;
     background-color: #fff;
-    color:#000;
+    box-shadow: 5px 10px 10px rgba(255,255,255,0.3);
+    border-radius: 5px;
+}
+.form-control{
+    border-radius: 5px;
+    border: 2px solid #888;
+}
+.form-control.name,.form-control.email{
+    height: 40px;
+}
+.form-group span{
+    color:#061121 ;
+}
+.btn{
+    background-color: #061121;
+    color:#fff;
     padding: 10px 10px;
     line-height: 1.2em;
     width:180px;
-    border-radius: 0%4px;
+    border-radius: 10px;
 }
-
-.btn:hover{
+.btn[disabled]{
     background-color: #061121;
     color:#fff;
-    border: 1px solid #014f86;
+}
+.btn:hover{
+    background-color: #fff;
+    color:#061121;
+    /* tran */
 }
 
 .success,.error{
@@ -18,10 +48,7 @@
     font-size: 16px;
 }
 
-.container{
-    background-color: #061121;
-    color:#a9d6e5;
-}
+
 
 @media(max-width:500px){
     .btn{

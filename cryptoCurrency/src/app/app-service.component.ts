@@ -14,7 +14,7 @@ export class AppService{
     changedMarketPer = new Subject<number[]>();
     changedMarketPerInCur = new Subject<number[]>();
     details !:CoinsDetails;
-    url = 'https://api.coingecko.com/api/v3/coins/';
+    url = 'https://api.coingecko.com/api/v3/coins/a';
     priceChangePerInCur : number[] =[];
     hideDetails = new Subject<boolean>();
     coins : Coins[] = [];
